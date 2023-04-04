@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdn.es.gov.br/fonts/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./styles.css">
+
+	<title>FeedNow</title>
+</head>
+
+<body>
+
+
+	<div class="card-master">
+       
+        <div class="card-top"></div>
+
+		<div class="notification hidden">
+			<p>Aguarde. A ração será fornecida.<b id="count"></b></p>
+		</div>
+		<div class="alert hidden">
+			<p>A quantidade que você inseriu não pode ser fornecida. Verifique a quantidade de ração no
+				reservatório<b id="count"></b></p>
+		</div>
+
+		<div class="wrapper">
+			<h1>Alimentar Agora:</h1>
+			<br>
+			<label class="label_input_def">Último arraçoamento:
+                <b class="output-data" id="output-timestamp"></b></label>
+			<br>
+			<label class="label_input_def">Qtd. de ração no reservatório:
+                <b class="output-data" id="output-reservoir"></b> kg</label>
+			<br>
+
+			<label class="label">
+                <h2>Insira a quantidade de ração que deseja fornecer (em Kg):</h2>
+            </label>
+			<div class="div-button">
+				<br>
+
+				<input class="input-set" id="amount-food" type="number" step=".01">
+				<button class="submit" id="submit">Alimentar</button>
+			</div>
+
+
+		</div>
+
+
+
+	</div>
+	</div>
+
+
+
+
+	</div>
+
+
+</body>
+
+</html>
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+
+.card-top{
+  
+    position: fixed;
+    box-sizing: border-box;
+    width: 174px;
+    height: 89px;
+    top: 40px;
+    background: #DEF9FF;
+    border: 2px solid #00D1FF;
+    border-radius: 38px;
+    left: 26%;
+
+
+}
+
+*{
+    margin-bottom: 0;
+    padding: 0;
+    box-sizing: border-box;
+
+
+
+  }
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background:white;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+
+.card-master {
+    margin-top: 5%;
+    height: 615px;
+    width: 520px;
+    justify-content: space-between;
+    border: 1px solid #005A94;
+    border-radius: 20px;
+    align-items: center;
+    margin-left: 30%;
+   
+}
+
+.notification {
+  margin-top: 30px;
+  display: flex;
+  position: absolute;
+  background-color: white;
+  width: 80%;
+  border: solid 2px;
+  border-color: rgb(120, 255, 120);
+  border-radius: 6px;
+  padding: 10px;
+  justify-content: center;
+  z-index: 3;
+}
+
+.notification p{
+  margin: 0px;
+  font-size: 14px;
+}
+
+.alert {
+  margin-top: 30px;
+  display: flex;
+  position: absolute;
+  background-color: white;
+  width: 80%;
+  border: solid 2px;
+  border-color: rgb(247, 88, 67);
+  border-radius: 6px;
+  padding: 10px;
+  justify-content: center;
+  z-index: 4;
+}
+
+.alert p{
+  margin: 0px;
+  font-size: 14px;
+}
+
+
+.wrapper {
+    padding: 19px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.card-master h1 {
+   
+    height: 53px;
+    text-align: right 60px;
+    justify-content: center;
+    margin-bottom: 50px;
+    margin-top: 58px;
+    top: 307px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 35px;
+    line-height: 52px;
+
+color: #005A94;
+}
+
+.card-master h2{
+   
+    height: 60px;
+ 
+
+    margin-top: 75px;
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    margin-left: 56px;
+    width: 350px;
+
+color: #133954;
+}
+
+
+.input-set {
+    width: 258px;
+    height: 50px;
+    font-size: 16px;
+    color: rgba(30, 30, 30, 0.6);
+    padding-left: 8px;
+    border: solid 2px;
+    border-color: #0084FE;
+    border-radius: 20px;
+    margin-bottom: 6px;
+    margin-top: 10px;
+    font-weight: 600;
+}
+
+.output-data {
+    font-size: 16px;
+}
+
+.div-button{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.submit{
+    margin-top: 38px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 14px;
+    width: 151px;
+    background: #A0EEFF;
+    border: 2px solid #00D1FF;
+    height: 55px;
+    border-radius: 20px;
+    font-family: 'Poppins';
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 700;
+}
+
+.submit:hover{
+    cursor: pointer;
+    color: #0084FE;
+    background-color: aliceblue;
+    border: solid 2px;
+    border-color: #0084FE;
+  }
+  
+
+.label_input_def {
+   
+    width: 422px;
+    height: 30px;
+    left: 552px;
+    top: 430px;
+    
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 30px;
+    
+    color: #133954;
+}
+
+.hidden {
+  display: none;
+}

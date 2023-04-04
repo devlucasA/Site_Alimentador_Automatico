@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <div class="app">
+        <header>Custom notifications with myNotifier</header>
+        <section class="controls">
+          <button type="button" id="js-notification" class="notification button">
+            Send a notification
+          </button>
+        </section>
+      </div>    
+
+    <style>
+        html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+  background-color: white;
+}
+
+.app {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+header {
+  width: 100%;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px;
+}
+
+.controls {
+  width: 100%;
+  padding: 20px 50px;
+}
+
+.button {
+  display: block;
+  color: white;
+  border-radius: 4px;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  text-align: center;
+  width: 100%;
+  font-size: 20px;
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,.14), 0 3px 1px -2px rgba(0,0,0,.2), 0 1px 5px 0 rgba(0,0,0,.12);
+}
+
+.notification {
+  background-color: black;
+  margin-bottom: 15px;
+}
+
+.notification:hover {
+  background-color: gray;
+}
+
+.notification:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+}
+
+@media screen and (max-width: 600px) {
+  .app {
+    width: 100%;
+  }
+  .quote-text {
+    font-size: 18px;
+  }
+}
+    </style>
+
+    <script>
+        const btn = document.getElementById('js-notification')
+
+btn.addEventListener('click', () => {
+  fetch('https://api.mynotifier.app', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      apiKey: '0d89eff8-78bc-409a-8c4b-821247d91971',
+      message: 'pH muito baixo!',
+      description: 'As últimas medições de pH do seu tanque estão muito baixas, isso indica um ambiente muito ácido e pode prejudicar o desenvolvimento dos peixes. É indicado analizar a quantidade de amônia dissolvida na água e realizar um calagem emergencial.',
+      type: 'success',
+      projectId: "74c701",
+    }),
+  })
+})
+    </script>
+</body>
+</html>
+
+

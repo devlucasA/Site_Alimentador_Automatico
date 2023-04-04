@@ -1,0 +1,149 @@
+#include <ESP32Servo.h>;
+#include <Ubidots.h>;
+#include <OneWire.h>;
+#include <DallasTemperature.h>;
+#include <ESP32Time.h>;
+//#include <WiFiManager.h>;
+
+Servo servo;
+
+//pH
+
+const int potPin=33;
+float ph;
+float MeasurepH=0;
+
+int startFeed;
+int foodProvided;
+int meal1;
+int SumMinutes;
+
+ESP32Time rtc(3600);
+// GPIO where the DS18B20 is connected to
+const int oneWireBus = 32;
+
+// Setup a oneWire instance to communicate with any OneWire devices
+OneWire oneWire(oneWireBus);
+
+// Pass our oneWire reference to Dallas Temperature sensor 
+DallasTemperature sensors(&oneWire);
+
+const char* UBIDOTS_TOKEN = "BBFF-XZJulh8fbTcknZ3S4Dc7rQ0aZZZOty";  // Put here your Ubidots TOKEN
+const char* WIFI_SSID = "AndroidAP266C";      
+const char* WIFI_PASS = "trnc6458";      
+const char* PISCICONTROL_LABEL = "0cb815d664d8"; 
+const char* DATABASE_LABEL = "database";
+const char* AMOUNT_FOOD_PROVIDED = "amount-food-provided";
+const char* START_FEED = "start-feed";
+const char* MEAL_1 = "meal1";
+
+Ubidots ubidots(UBIDOTS_TOKEN, UBI_HTTP);
+
+void setup() {
+ Serial.begin(115200);  
+/*
+  WiFi.mode(WIFI_STA);
+  
+ 
+
+    WiFiManager wm;
+  wm.resetSettings();
+  bool res;
+  res = wm.autoConnect("ESP32.","jontinha");
+   if(!res) {
+        Serial.println("Failed to connect");
+        // ESP.restart();
+    } 
+    else {
+        //if you get here you have connected to the WiFi    
+        Serial.println("connected...yeey :)");
+    }
+*/
+    
+  ubidots.wifiConnect(WIFI_SSID, WIFI_PASS);
+  servo.attach(26);
+  sensors.begin();
+  pinMode(potPin,INPUT);
+  delay(1000);
+  //rtc.setTime(30, 24, 15, 17, 1, 2021); 
+}
+
+void loop() {
+  bool bufferSent = false;
+
+//PH
+MeasurepH = analogRead(potPin);
+    Serial.print(MeasurepH);
+    Serial.print(" | ");
+    float voltage=(MeasurepH)*(3.3/4095.0);
+    ph=(3.3*voltage);
+    Serial.println(ph);
+ubidots.add("phwather", ph);
+
+  struct tm timeinfo = rtc.getTimeStruct();
+  String Time = rtc.getTime();
+  int Hours = rtc.getHour();
+  int Minutes = rtc.getMinute();
+  String AmPm = rtc.getAmPm();
+  Serial.println(AmPm);
+  if (AmPm == "AM") {
+    SumMinutes = ((Hours + 12) * 60) + Minutes;
+  }
+  else {
+    SumMinutes = (Hours * 60) + Minutes;
+  }
+
+  Serial.println(rtc.getTime());
+  Serial.print("Hours: ");
+  Serial.println(Hours);
+  Serial.print("SumMinutes: ");
+  Serial.println(SumMinutes);
+delay(50);
+sensors.requestTemperatures(); 
+  float temperatureC = sensors.getTempCByIndex(0);
+
+delay(50);
+  // Obtains last value values using.
+  startFeed = ubidots.get(PISCICONTROL_LABEL, START_FEED);  
+  foodProvided = ubidots.get(DATABASE_LABEL, AMOUNT_FOOD_PROVIDED);  
+  meal1 = ubidots.get(DATABASE_LABEL, MEAL_1);
+
+  if (meal1 == SumMinutes) {
+    servo.write(90);
+    delay(6000);
+    servo.write(0);
+    delay(56000);
+    return;
+  }
+
+  // Evaluates the results obtained
+  if(startFeed!=ERROR_VALUE){
+    Serial.print("startFeed:");
+    Serial.println(startFeed);
+  }  
+  else {
+    Serial.println("ERRO com o startFeed");
+  }
+delay(50);
+  ubidots.add("temp", temperatureC);
+
+  if(startFeed == 1){
+    // em 5 segundos, são liberados 0.1 KG de ração
+    int time = 4500;
+    servo.write(90);
+    delay(time);
+    servo.write(0);
+    ubidots.add(START_FEED, 0);
+    bufferSent = ubidots.send();
+     delay(5000);
+    }
+    else {
+    servo.write(0);
+    bufferSent = ubidots.send();
+    }
+
+  if (bufferSent) {
+    Serial.println("Values sent by the device");
+  }
+ 
+}
