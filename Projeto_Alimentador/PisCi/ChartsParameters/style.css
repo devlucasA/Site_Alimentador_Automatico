@@ -1,0 +1,8 @@
+#temp, #ph {
+    min-width: 310px; 
+    height: 310px; 
+    margin: 0 auto
+}
+#ph{
+    margin-bottom: 60px;
+}
