@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alimentar Agora</title>
+
+<!--ESTILOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/header.css">
+    <link rel="stylesheet" href="./styles/lateral_menu.css">
+    <link rel="stylesheet" href="./styles/all.css">
+    <link rel="stylesheet" href="./styles/FeedNow.css">
+    <link rel="stylesheet" href="./styles/all.css">
+
+<!--ICONE-->
+    <link rel="shortcut icon" href="./img/logo1.png">
+
+<!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+    <script type="text/javascript" src="./scripts/lateral_menu.js" defer></script>
+    <script type="text/javascript" src="./scripts/vars.js" defer></script>
+    <script type="text/javascript" src="./scripts/FeedNow.js" defer></script>
+
+</head>
+<body>
+
+<!--HEADER-->
+    <header>
+        <div class="div_logo">
+            <img class="logo1" src="./img/logo1.png" alt="">
+            <img class="logo2" src="./img/logo2.png" alt="">
+        </div>
+
+        <div class="list_header">
+				<select id="input6" class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="option">Alimentador 1</option>
+                    <option class="option">Alimentador 2</option>
+                </select>
+
+                <select id="input6" class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="option">Tanque 1</option>
+                    <option class="option">Tanque 2</option>
+                </select>
+        </div>
+
+        <div class="tools_header">
+            <i class="icon_header fa-solid fa-bell"></i>
+            <i class="icon_header fa-solid fa-gear"></i>
+        </div>
+
+    </header>
+
+<!--MENU LATERAL-->
+<div class="wrapper_menu">
+
+    <div class="profile_wrapper">
+        <img src="./img/profile.jpg" class="profile_lateral_menu" alt="profile">
+        <p class="see_profile hidden">Ver Perfil</p>
+    </div>
+
+
+
+        <div class="lateral_menu">
+           <div class="options_menu" onclick="location.href='./index.html';"><i class="fa-solid fa-gauge icon_lateral_menu"></i><p class="hidden menu_link">DashBoards</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='./Food.html';"><i class="fa-solid fa-scale-balanced icon_lateral_menu"></i><p class="hidden menu_link">Qtd. de ração</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='./Temp.html';"><i class="fa-solid fa-temperature-three-quarters icon_lateral_menu"></i><p class="hidden menu_link">Temperatura da água</p>
+        <span></span>
+        </div> 
+           <div class="options_menu" onclick="location.href='./pH.html';"><i class="fa-solid fa-droplet icon_lateral_menu"></i> <p class="hidden menu_link">pH da água</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='./Cost.html';"><i class="fa-solid fa-dollar-sign icon_lateral_menu"></i><p class="hidden menu_link">Informações de custo</p>
+        <span></span>
+        </div>
+           <div class="options_menu  selected_option" onclick="location.href='./FeedNow.html';"><i class="fa-solid fa-clock icon_lateral_menu"></i><p class="hidden menu_link">Alimentar agora</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+        <div class="wrapper_btn_retratil">
+            <button class="retratil_button" onclick="toggle_menu(this)"><p>></p></button>
+       </div>
+
+    </div>
+
+
+    <section class="master_section">
+        <div class="card-master">
+       
+            <div class="card-top">
+                <p><i class="fa-solid fa-temperature-three-quarters"></i> <b id="temp_metric"></b> °C</p>
+            </div>
+    
+            <div style="display: flex; justify-content: center; align-items: center; width: 100%;">
+            <div class="notification hidden">
+                <p>Aguarde. A ração será fornecida.<b id="count"></b></p>
+            </div>
+            <div class="alert hidden">
+                <p>A quantidade que você inseriu não pode ser fornecida. Verifique a quantidade de ração no
+                    reservatório<b id="count"></b></p>
+            </div>
+        </div>
+
+            <div class="wrapper">
+                <h3 class="hf">Alimentar Agora:</h3>
+                <br>
+                <label class="label_input_def">Último arraçoamento:
+                    <b class="output-data" id="output-timestamp"></b></label>
+                <br>
+                <label class="label_input_def">Qtd. de ração no reservatório:
+                    <b class="output-data" id="output-reservoir"></b> </label>
+                <br>
+    
+                <label class="label">
+                    <h2>Insira a quantidade de ração que deseja fornecer (em Kg):</h2>
+                </label>
+                <div class="div-button">
+                    <br>
+    
+                    <input class="input-set" id="amount-food" type="number" step=".01">
+                    <button class="submit" id="submit">Alimentar</button>
+                </div>
+    
+    
+            </div>
+    
+    
+    
+        </div>
+        </div>
+    
+    
+    
+    
+        </div>
+</section>
+
+</body>
+</html>

@@ -1,0 +1,91 @@
+header {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    background-color: #133954;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+
+  }
+  
+  header .div_logo {
+      display: flex;
+      align-items: center;
+      width: 33%;
+      justify-content: left;
+      margin-left: 60px;
+  }
+  
+  header .div_logo .logo1 {
+      height: 25px;
+    }
+    
+  header .div_logo .logo2 {
+      height: 15px;
+      margin-left: 6px;
+    }
+  
+  header .list_header {
+    width: 25%;
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  header .list_header  .selection {
+    width: auto;
+    height: 38px;
+    left: 517px;
+    top: 31px;
+    border: none;
+    background-color: #133954;
+    color: white;
+  }
+  
+  header .list_header  .selection:hover{
+    cursor: pointer;
+  }
+  
+  header .tools_header {
+      display: flex;
+      width: 33%;
+      justify-content: right;
+      margin-right: 60px;
+  }
+  
+  header .tools_header i:hover, .tool_selected{
+      cursor: pointer;
+      background-color: #8d92b4;
+  }
+  
+  header .tools_header i{
+      color: white;
+      font-size: 20px;
+      padding: 15px;
+      border-radius: 6px;
+  }
+
+@media (max-width: 500px) {
+    header .div_logo {
+        margin-left: 10px;
+        width: 15%;
+    }
+    header .tools_header {
+        width: 20%;
+        margin: 0px;
+        margin-right: 10px;
+    }
+    header .tools_header i{
+        padding: 5px;
+        font-size: 18px;
+    }
+    header .list_header {
+        width: 80%;
+        margin: 0px 15px 0px 18px;
+    }
+    header .div_logo .logo2 {
+        display: none;
+    }
+}
