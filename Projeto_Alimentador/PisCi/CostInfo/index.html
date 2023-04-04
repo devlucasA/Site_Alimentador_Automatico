@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Document</title>
+</head>
+<body>
+    <div class="card-master">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+        <div class="GPD_card hidden">
+            <div class="div_icons" style="justify-content: right;">
+                <i style="font-size: 16px;"class="close-icon close-icon1 fa fa-close" onclick="closed()"></i>
+            </div>
+    
+            <div class="div_top">
+    
+                <label >Última biometria:</label>
+                <input id="last_weight" style="font-size: 12px" type="number" placeholder="Peso dos peixes (g)" class="input_weight" step=".01">
+                <input id="last_date" style="font-size: 12px" placeholder="Data" class="input_weight" step=".01" onfocus="(this.type='date')"
+                 onblur="(this.type='text')">
+            </div>
+    
+                <div class="div_botton">
+                    <label >Penúltima biometria:</label>
+                    <input id="penult_weight" style="font-size: 12px" type="number" placeholder="Peso dos peixes (g)" class="input_weight" step=".01">
+                    <input id="penult_date" style="font-size: 12px" placeholder="Data" class="input_weight" step=".01" onfocus="(this.type='date')"
+             onblur="(this.type='text')">
+    
+                    <div class="calc_div">
+                        <button id="calc_GPD_button" onclick="calcGPD()">Calcular</button><label><b>GPD: </b><b id="GPD_result" class="output_def"></b></label>
+                    </div>
+    
+                </div>
+    
+                <button class="submit" onclick="saveGPD()">Salvar <i style="color: white; margin-left: 5px;" class="fa-solid fa fa-check"></i></button>
+    
+            </div>
+    
+            <div class="div_mask">
+    
+                <h1>Informações de custo: <i class="reload_icon fa-solid fa-arrow-rotate-right" onclick="reload_widget()"></i></h1>
+    
+                <div class="wrapper">
+    
+    
+                    <label class="label_output_def" >Custo ração (25kg): R$
+                <input type="number" disabled step=".01" class="input_def" value=""> 
+                <i id="edit_cost" class="icon fa fa-edit" onclick="editCost(this)"></i>
+                <i id="save_icon" class="icon fa-solid fa-circle-check hidden" onclick="saveCost()"></i>
+                </label>
+                    <label class="label_output_def" >Ganho de peso diário: 
+                    <b class="output_def" id="GPD_output"></b> &nbsp g<i id="edit_GPD" class="icon fa fa-edit" onclick="openGPDCard()"></i></label>
+                    <label class="label_output_def" >TCA Real: 
+                    <b class="output_def" id="real_TCA"></b></label>
+                    <label class="label_output_def" >TCA Esperada: 
+                    <b class="output_def" id="expected_TCA"></b></label>
+                    <label class="label_output_def">Custo médio últimos 7 dias: R$
+                    <b class="output_def" id="cost-food"></b></label>
+                    <label class="label_output_def" >Custo relativo: R$
+                    <b class="output_def" id="relative-cost"></b>/kg</label>
+
+                </div>
+            </div>
+        </div>
+    
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+        <script type="text/javascript" src="./script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DashBoards</title>
+ 
+<!--ESTILOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/styles/header.min.css?hash=aca3f0a"> 
+
+   
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/styles/ConfigScreen.min.css?hash=aca3f0a"> 
+
+<!--ICONE-->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/logo1.png?hash=aca3f0a">
+
+<!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/scripts/lateral_menu.min.js?hash=aca3f0a" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/scripts/configScreen.min.js?hash=aca3f0a" defer></script>
+
+</head>
+<body>
+
+<!--HEADER-->
+    <header>
+        <div class="div_logo">
+            <img class="logo1" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/logo1.png?hash=aca3f0a" alt="">
+            <img class="logo2" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/logo2.png?hash=aca3f0a" alt="">
+        </div>
+
+        <div class="list_header">
+				<select class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="optionHeader">Alimentador 1</option>
+                    <option class="optionHeader">Alimentador 2</option>
+                </select>
+
+                <select class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="option">Tanque 1</option>
+                    <option class="option">Tanque 2</option>
+                </select>
+        </div>
+
+        <div class="tools_header">
+            <i class="icon_header fa-solid fa-bell"></i>
+            <i class="icon_header fa-solid fa-gear"></i>
+        </div>
+
+    </header>
+
+<!--MENU LATERAL-->
+<div class="wrapper_menu">
+
+    <div class="profile_wrapper">
+        <img src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/profile.jpg?hash=aca3f0a" class="profile_lateral_menu" alt="profile">
+        <p class="see_profile hidden">Ver Perfil</p>
+    </div>
+
+
+
+    <div class="lateral_menu">
+        <div class="options_menu selected_option" onclick="location.href='/';"><i class="fa-solid fa-gauge icon_lateral_menu"></i><p class="hidden menu_link">DashBoards</p>
+     <span></span>
+     </div>
+        <div class="options_menu" onclick="location.href='/racao';"><i class="fa-solid fa-scale-balanced icon_lateral_menu"></i><p class="hidden menu_link">Qtd. de ração</p>
+     <span></span>
+     </div>
+        <div class="options_menu" onclick="location.href='/temperatura';"><i class="fa-solid fa-temperature-three-quarters icon_lateral_menu"></i><p class="hidden menu_link">Temperatura da água</p>
+     <span></span>
+     </div> 
+        <div class="options_menu" onclick="location.href='/ph';"><i class="fa-solid fa-droplet icon_lateral_menu"></i> <p class="hidden menu_link">pH da água</p>
+     <span></span>
+     </div>
+        <div class="options_menu" onclick="location.href='/custo';"><i class="fa-solid fa-dollar-sign icon_lateral_menu"></i><p class="hidden menu_link">Informações de custo</p>
+     <span></span>
+     </div>
+        <div class="options_menu" onclick="location.href='/alimentar-agora';"><i class="fa-solid fa-clock icon_lateral_menu"></i><p class="hidden menu_link">Alimentar agora</p>
+     <span></span>
+     </div>
+</div>
+        <div class="wrapper_btn_retratil">
+            <button class="retratil_button" onclick="toggle_menu(this)"><p>></p></button>
+       </div>
+
+    </div>
+
+<!--TELA DE CONFIGURAÇÕES-->
+<section class="cards-wrapper hidden">
+
+    <!-- Card 1: Espécie e Idade-->
+
+    <div class="card-master card-master1">
+        <div class="div_icons" style="justify-content: right;">
+            <i class="close-icon close-icon1 fa fa-close" onclick="closed(this)"></i>
+        </div>
+
+        <div class="wrapper">
+            <h1>Dados</h1>
+            <label class="label">Espécie Trabalhada:</label>
+            <div class="col-auto my-1">
+                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                <select id="input1" class="standard-input mr-sm-2" id="inlineFormCustomSelect">
+                        <option class="option-fish" value="Tilápia">Tilápia</option>
+                        <option class="option-fish" value="Lambari">Lambari</option>
+                        <option class="option-fish" value="Pacu">Pacu</option>
+                        <option class="option-fish" value="Tambaqui">Tambaqui</option>
+                    </select>
+            </div>
+            <label class="label"> Idade dos peixes (dias): </label>
+            <input id="input2" class="standard-input" type="number" required>
+            </div>
+
+            <div class="button-div">
+                <button class="advance-buttom advance1 submit" onclick="advance(this)">Avançar
+                    <i class="submit-icon fa fa-arrow-right"></i></button>
+            </div>
+        </div>
+
+        <!-- Card 2: Quantidade e peso dos peixes-->
+
+        <div class="card-master card-master2 hidden">
+            <div class="div_icons">
+                <i class=" return-arrow return-arrow2 fa fa-arrow-left" onclick="back(this)"></i>
+                <i class="close-icon close-icon2 fa fa-close" onclick="closed(this)"></i>
+            </div>
+            <div class="wrapper">
+                <h1>Dados</h1>
+                <div>
+                    <label class="label">Quantidade de pexes no viveiro:</label>
+                    <br>
+                    <input id="input3" class="standard-input" type="number" required>
+                </div>
+                    <div>
+                        <label class="label">Peso médio dos peixes (g):</label>
+                        <br>
+                        <input id="input4" class="standard-input" type="number" required>
+                </div>
+                    </div>
+                    <div class="button-div">
+                        <button class="advance-buttom advance2 submit"
+                    onclick="advance(this); CalcFeedAmount(), kindFeed()">Avançar
+                    <i class="submit-icon fa fa-arrow-right"></i></button></button>
+                    </div>
+                </div>
+                <!-- Card 3: Quantidade e tipo de ração:-->
+                <div class="card-master card-master3 hidden">
+
+                    <div class="div_icons">
+                        <i class=" return-arrow return-arrow3 fa fa-arrow-left" onclick="back(this)"></i>
+
+                        <i class="close-icon close-icon3 fa fa-close" onclick="closed(this)"></i>
+                    </div>
+                    <div class="wrapper">
+                        <p style="margin-bottom: 20px;">Obs: Os valores recomendados podem ser editados.</p>
+                        <div>
+                            <label class="label">Qtd. de ração por dia (Kg):</label>
+                            <br>
+                            <input id="input5" class="standard-input" type="number" step=".01">
+                </div>
+                            <div class="col-auto my-1">
+                                <label class="label">Tipo de ração</label>
+                                <br>
+                                <label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+                                <select id="input6" class="standard-input mr-sm-2" id="inlineFormCustomSelect">
+                        <option class="option-fish" id="food1" value="Ração em pó - 42% PB">Ração em pó - 42% PB</option>
+                        <option class="option-fish" id="food2" value="2-3 mm - 42% PB">2-3 mm - 42% PB</option>
+                        <option class="option-fish" id="food3" value="3-4 mm - 36% PB">3-4 mm - 36% PB</option>
+                        <option class="option-fish" id="food4" value="4-6 mm - 32% PB">4-6 mm - 32% PB</option>
+                        <option class="option-fish" id="food5" value="4-6 mm - 28-32% PB">4-6 mm - 28-32% PB</option>
+                        <option class="option-fish" id="food6" value="6-8 mm - 28-32% PB">6-8 mm - 28-32% PB</option>
+                    </select>
+                            </div>
+                        </div>
+                        <div class="button-div">
+                            <button class="advance-buttom advance3 submit" onclick="advance(this)">Avançar
+                    <i class="submit-icon fa fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <!-- Card 4: Frequência-->
+                    <div class="card-master card-master4 hidden">
+
+                        <div class="div_icons">
+                            <i class=" return-arrow return-arrow4 fa fa-arrow-left" onclick="back(this)"></i>
+
+                            <i class="close-icon close-icon4 fa fa-close" onclick="closed(this)"></i>
+                        </div>
+
+                        <div class="wrapper">
+                            <br>
+                            <br>
+                            <p>Obs: Os valores recomendados podem ser editados.</p>
+                            <br>
+                            <div>
+                                <label class="label">Refeições diárias:</label>
+                                <br>
+                                <input id="input7" class="standard-input" type="number" required>
+                </div>
+                            </div>
+                            <div class="buttom-div">
+                                <button class="advance-buttom advance4 submit" onclick="advance(this), activeSchedules()">Avançar
+                    <i class="submit-icon fa fa-arrow-right"></i></button>
+                            </div>
+                        </div>
+
+
+                        <!-- Card 5: Horários-->
+
+                        <div class="card-master card-master5 hidden">
+                            <div class="div_icons">
+                                <i class=" return-arrow return-arrow5 fa fa-arrow-left" onclick="back(this)"></i>
+                                <i class="close-icon close-icon4 fa fa-close" onclick="closed(this)"></i>
+                            </div>
+                            <div class="wrapper">
+                                <p>Esolha os melhores horários para alimentar os peixes:</p>
+                                <div class="cen">
+                                    <label class="meal label">1° Refeição:
+                        <input id="input8" class="meal-input" type="time"></label>
+                                    <br>
+                                    <label class="meal label">2° Refeição:
+                        <input id="input9" class="meal-input" type="time"></label>
+                                    <br>
+                                    <label class="meal label">3° Refeição:
+                        <input id="input10" class="meal-input" type="time"></label>
+                                    <br>
+                                    <label class="meal label">4° Refeição:
+                        <input id="input11" class="meal-input" type="time"></label>
+                                    <br>
+                                    <label class="meal label">5° Refeição:
+                        <input id="input12" class="meal-input" type="time"></label>
+                                </div>
+                            </div>
+                            <div class="button-div">
+                                <button class="advance-buttom advance5 submit" id="save-button">Salvar
+                    <i class="fa-solid fa fa-check"></i></button>
+                            </div>
+                        </div>
+</section>
+<section class="master_section">
+
+
+    
+    <!-- Tela de configurações -->
+    <div class="div_mask hidden"></div>
+    <h1 style="margin-top: 0px;">Definições da zona do alimentador <b>1</b></h1>
+        <section class="def_screen">
+
+            <div class="div_left">
+
+                <div class="wrapper_data_def">
+                    <p class="label_input_def" style="margin-top: 0px;">Espécie:
+                        <b id="kind_fish" class="input_def"></b>
+                    </p>
+                    <p class="label_input_def">Idade:
+                        <b id="age" class="input_def"></b> <b class="input_def"> dias</b>
+                    </p>
+                    <p class="label_input_def">Qtd. peixes:
+                        <b id="amount-fish" class="input_def"></b>
+                    </p>
+                    <p class="label_input_def">Peso médio:
+                        <b id="weight-fish" class="input_def"></b> <b class="input_def"> gramas</b>
+                    </p>
+                    <p class="label_input_def">Qtd. diária ideal ração:
+                        <b id="amount-feed-ideal" class="input_def"></b> <b class="input_def"> kg</b>
+                    </p>
+                    <p class="label_input_def">Ração:
+                        <b id="kind-feed" type="text" class="input_def"></b>
+                    </p>
+                    <p class="label_input_def">Frequência:
+                        <b id="freq" class="input_def"></b> <b class="input_def"> vezes</b>
+                    </p>
+                    <p class="label_input_def">Qtd. ração por vez:
+                        <b id="feedForMeal" class="input_def"></b> <b class="input_def"> kg</b>
+                    </p>
+
+                </div>
+            </div>
+
+            <div class="div_right">
+
+                <div class="time_data_def">
+
+                    <h2>HORÁRIOS DE ALIMENTAÇÃO</h2>
+
+                    <p class="label_input_def" id="label_ref1" >1° Refeição: <b id="meal1" class="input_def"></b></p> 
+                    <p class="label_input_def" id="label_ref2" >2° Refeição: <b id="meal2" class="input_def"></b></p>
+                    <p class="label_input_def" id="label_ref3" >3° Refeição: <b id="meal3" class="input_def"></b></p>
+                    <p class="label_input_def" id="label_ref4" >4° Refeição: <b id="meal4" class="input_def"></b></p>
+                    <p class="label_input_def" id="label_ref5" >5° Refeição: <b id="meal5" class="input_def"></b></p>
+                    
+
+                </div>
+
+                <button class="edit_def_buttom" onclick="openModal()">
+                        Editar definições
+                        <i class="edit_icon fa-regular fa-pen-to-square"></i>
+                </button>
+            </div>
+
+        </section>
+
+
+
+<!--MAPA-->
+
+<!--MAPA-->
+<iframe class="map" frameborder="0" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5660.8832589370895!2d-46.700663829337046!3d-23.568911817117005!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce570829ccae7f%3A0xc3dca95a782e9a7d!2sUniversidade%20Cidade%20de%20S%C3%A3o%20Paulo%20-%20UNICID!5e0!3m2!1spt-BR!2sbr!4v1679264606879!5m2!1spt-BR!2sbr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+>
+<!-- ALERTAS -->
+<h1>Alertas</h1>
+<div class="wrapper_alerts">
+    <div class="no_alerts">
+        <img src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/fish.png?hash=aca3f0a" alt="">
+        <p>Sem alertas por enquanto...</p>
+    </div>
+    
+ <!--   <div id="" class="alert sucess_alert">
+        <p><i class="fa-solid fa-circle-check"></i>A ração foi fornecida com sucesso!</p><i class="close_alert fa fa-close" onclick="closeAlert(this)"></i>
+    </div>
+    <div id="" class="alert caution_alert">     
+        <p><i class="fa-solid fa-triangle-exclamation"></i>A ração está acabando! Reservatório com menos de 10% da capacidade.</p>  <i class="close_alert fa fa-close" onclick="closeAlert(this)"></i> 
+    </div>
+    <div id="" class="alert danger_alert">
+        <p><i class="fa-solid fa-triangle-exclamation"></i> Sistema desconectado. A alimentação continuará conforme a última programação.</p><i class="close_alert fa fa-close" onclick="closeAlert(this)"></i>
+    </div> -->
+</div>
+
+<!--MÉTRICAS-->
+<!--MÉTRICAS-->
+
+<div class="wrapper_metrics">
+
+    <!--TEMPERATURA-->
+    <div class="wrapper_card">
+        <h1>Temperatura da água</h1>
+
+    <div class="card_metric temp_card">
+        <div class="total_content">
+            <img src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/Data-Files-PisciControl-2.0/img/temp.png?hash=aca3f0a" alt="temp">
+            <div class="data_content">
+                <p class="principal_metric" ><span id="temp_metric"></span> <b>°C</b></p>
+                <p>Última atualização: <br> <b id="last_update_temp"></b></p>
+            </div>
+        </div>
+        <div class="div_icon_plus"><i class="fa-solid fa-circle-plus" onclick="location.href='./Temp.html';"></i></div>
+    </div>
+
+    <div class="div_status">
+        <p>Consumo de ração:</p> <b class="status_metric" id="consumption_status"></b>
+    </div>
+
+    </div>
+
+
+    <!--pH-->
+    <div class="wrapper_card">
+        <h1>pH da água</h1>
+
+    <div class="card_metric ph_card">
+        <div class="total_content">
+            <div class="data_content">
+                <p class="principal_metric" id="ph_metric"></p>
+                <p>Última atualização: <br> <b id="last_update_ph"></b></p>
+            </div>
+        </div>
+        <div class="div_icon_plus"><i class="fa-solid fa-circle-plus" onclick="location.href='./pH.html';"></i></div>
+    </div>
+
+    <div class="div_status bad_status" id="div_status_ph">
+        <p>Classificação:</p> <b class="status_metric" id="ph_status"></b>
+    </div>
+
+    </div>
+
+</div>
+
+<div class="wrapper_metrics">
+
+    <!--QUANTIDADE DE RAÇÃO-->
+
+    <div class="wrapper_card">
+        <h1>Quantidade de ração</h1>
+    <div class="card_metric food_card">
+        <div class="total_content">
+            <div class="progress-bar" ></div>
+            <div class="data_content">
+                <p class="principal_metric"> <span  id="food_metric"></span> <b>kg</b></p>
+                <p>Última atualização: <br> <b id="last_update_food"></b></p>
+            </div>
+        </div>
+        <div class="div_icon_plus"><i class="fa-solid fa-circle-plus" onclick="location.href='./Food.html';"></i></div>
+    </div>
+    </div>
+
+        <!--CUSTO RELATIVO-->
+    <div class="wrapper_card">
+        <h1>Custo relativo</h1>
+    <div class="card_metric cost_card">
+        <div class="total_content">
+            <div class="data_content">
+                <p class="principal_metric"><b>R$</b> <span id="relative_cost"></span> <b>/ kg</b></p>
+                <p>Última semana: <br> R$ <b id="last_week_cost"></b></p>
+                <b hidden id="last_update_cost"></b>
+            </div>
+        </div>
+        <div class="div_icon_plus"><i class="fa-solid fa-circle-plus" onclick="location.href='./Cost.html';"></i></div>
+    </div>
+    </div>
+
+</div>
+
+</section>
+
+</body>
+</html>
