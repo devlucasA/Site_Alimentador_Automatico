@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custos</title>
+
+<!--ESTILOS-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/styles/header.min.css?hash=d363806">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/styles/cost.min.css?hash=d363806"> 
+
+<!--ICONE-->
+    <link rel="shortcut icon" href="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/img/logo1.png?hash=d363806">
+
+<!--SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/scripts/lateral_menu.min.js?hash=d363806" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/scripts/costInfo.min.js?hash=d363806" defer></script>
+
+</head>
+<body>
+
+<!--HEADER-->
+    <header>
+        <div class="div_logo">
+            <img class="logo1" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/img/logo1.png?hash=d363806" alt="">
+            <img class="logo2" src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/img/logo2.png?hash=d363806" alt="">
+        </div>
+
+        <div class="list_header">
+				<select id="input6" class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="option">Alimentador 1</option>
+                    <option class="option">Alimentador 2</option>
+                </select>
+
+                <select id="input6" class="selection mr-sm-2" id="inlineFormCustomSelect">
+					<option class="option">Tanque 1</option>
+                    <option class="option">Tanque 2</option>
+                </select>
+        </div>
+
+        <div class="tools_header">
+            <i class="icon_header fa-solid fa-bell"></i>
+            <i class="icon_header fa-solid fa-gear"></i>
+        </div>
+
+    </header>
+
+<!--MENU LATERAL-->
+<div class="wrapper_menu">
+
+    <div class="profile_wrapper">
+        <img src="https://cdn.jsdelivr.net/gh/Sr-Artagnan/PisciControl@main/files-PisciControl-2.0/img/profile.jpg?hash=d363806" class="profile_lateral_menu" alt="profile">
+        <p class="see_profile hidden">Ver Perfil</p>
+    </div>
+
+
+
+
+        <div class="lateral_menu">
+           <div class="options_menu" onclick="location.href='./index.html';"><i class="fa-solid fa-gauge icon_lateral_menu"></i><p class="hidden menu_link">DashBoards</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='/Food.html';"><i class="fa-solid fa-scale-balanced icon_lateral_menu"></i><p class="hidden menu_link">Qtd. de ração</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='/Temp.html';"><i class="fa-solid fa-temperature-three-quarters icon_lateral_menu"></i><p class="hidden menu_link">Temperatura da água</p>
+        <span></span>
+        </div> 
+           <div class="options_menu" onclick="location.href='./pH.html';"><i class="fa-solid fa-droplet icon_lateral_menu"></i> <p class="hidden menu_link">pH da água</p>
+        <span></span>
+        </div>
+           <div class="options_menu selected_option" onclick="location.href='./Cost.html';"><i class="fa-solid fa-dollar-sign icon_lateral_menu"></i><p class="hidden menu_link">Informações de custo</p>
+        <span></span>
+        </div>
+           <div class="options_menu" onclick="location.href='./FeedNow.html';"><i class="fa-solid fa-clock icon_lateral_menu"></i><p class="hidden menu_link">Alimentar agora</p>
+        <span></span>
+        </div>
+    
+    </div>
+
+        <div class="wrapper_btn_retratil">
+            <button class="retratil_button" onclick="toggle_menu(this)"><p>></p></button>
+       </div>
+
+    </div>
+
+
+    <section class="master_section">
+<!--MÉTRICAS-->
+
+   
+<div class="wrapper_metrics">
+
+
+    
+        <!--CUSTO RELATIVO-->
+        <div class="wrapper_card">
+            <h1>Custo relativo</h1>
+        <div class="card_metric cost_card">
+            <div class="total_content">
+                <div class="data_content">
+                    <p class="principal_metric"> <b>R$</b> 0.61 <b>/kg</b></p>
+                </div>
+            </div>
+        </div>
+        </div>
+
+    <!--CUSTO SEMANAL-->
+
+    <div class="wrapper_card">
+        <h1>Custo semanal</h1>
+    <div class="card_metric food_card">
+        <div class="total_content">
+            <div class="data_content">
+                <p class="principal_metric"> <b>R$</b>583,00</p>
+            </div>
+        </div>
+    </div>
+    </div>
+
+</div>
+
+	<div class="card-master">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+		<div class="GPD_card hidden">
+			<div class="div_icons" style="justify-content: right;">
+				<i style="font-size: 16px;"class="close-icon close-icon1 fa fa-close" onclick="closed()"></i>
+			</div>
+
+            <p id="error_msg"></p>
+
+			<div class="div_top">
+
+				<label >Última biometria:</label>
+				<input  id="last_weight" style="font-size: 12px" type="number" placeholder="Peso dos peixes (g)" class="input_weight" step=".01">
+				<input  id="last_date" style="font-size: 12px" placeholder="Data" class="input_weight" step=".01"
+                 onblur="(this.type='date')">
+            </div>
+
+				<div class="div_botton">
+					<label >Penúltima biometria:</label>
+					<input  id="penult_weight" style="font-size: 12px" type="number" placeholder="Peso dos peixes (g)" class="input_weight" step=".01">
+					<input  id="penult_date" style="font-size: 12px" placeholder="Data" class="input_weight" step=".01" onfocus="(this.type='date')"
+             onblur="(this.type='date')">
+
+					<div class="calc_div">
+						<span id="calc_GPD_button" onclick="calcGPD()">Calcular</span><label><b>GPD: </b><b id="GPD_result" class="output_def"></b></label>
+					</div>
+
+				</div>
+          
+				<button class="submit"  type="submit" onclick="validityFunc()">Salvar <i style="color: white; margin-left: 5px;" class="fa-solid fa fa-check"></i></button>
+
+			</div>
+
+			<div class="div_mask">
+
+				<div class="wrapper">
+
+
+					<label class="label_output_def" >Custo ração (25kg): R$
+                <input type="number" disabled step=".01" class="input_def"> 
+                <i id="edit_cost" class="icon fa fa-edit" onclick="editCost(this)"></i>
+                <i id="save_icon" class="icon fa-solid fa-circle-check hidden" onclick="postCost()"></i>
+                </label>
+					<label class="label_output_def" ><i class="icon_data fa-solid fa-circle-info"></i>Ganho de peso diário: 
+                    <b class="output_def" id="GPD_output"></b> &nbsp g<i id="edit_GPD" class="icon fa fa-edit" onclick="openGPDCard()"></i></label>
+					<label class="label_output_def" ><i class="icon_data fa-solid fa-circle-info"></i>TCA Real: 
+                    <b class="output_def" id="real_TCA"></b></label>
+					<label class="label_output_def" ><i class="icon_data fa-solid fa-circle-info"></i>TCA Esperada: 
+                    <b class="output_def" id="expected_TCA"></b></label>
+
+				</div>
+			</div>
+		</div>
+        <div id="wrapperTable">
+            <a target="_blank" href="https://docs.google.com/spreadsheets/d/1PGlIy6Ap8uTNRnEUI84bDsI0LpDQsyYY7dRttXpBLwU/"><button id="btnExport"><i class="icon_data fa-solid fa-download"></i></i>Ver planilha</button></a>
+        <table id="tblExport" class="tbody table table-striped">
+              <tr>
+                <th scope="col">Data</th>
+                <th scope="col">Quantidade (Kg)</th>
+                <th scope="col">Custo</th>
+              </tr>
+          </table>
+        </div>
+
+</section>
+</body>
+</html>

@@ -1,0 +1,187 @@
+.wrapper_metrics {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: row;
+    margin-bottom: 90px;
+}
+
+.wrapper_metrics .wrapper_card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+}
+
+.wrapper_metrics .wrapper_card .card_metric{
+    display: flex;
+    padding: 10px;  
+    width: 350px;
+    height: 250px;
+    align-items: center ;
+    flex-direction: column;
+}
+
+.total_content {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: calc(100% - 30px);
+}
+
+.total_content img{
+    width: 100px;
+    height: 120px;
+}
+
+.data_content {
+    text-align: center;
+    width: 60%;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.principal_metric b{
+    font-size: 30px;
+    font-weight: 400;
+}
+
+.principal_metric {
+    color:#005A94;
+    font-size: 40px;
+    font-weight: 800;
+}
+
+.div_consumption {
+    text-align: center;
+    width: 200px;
+    border: 2px solid;
+    border-radius: 15px;
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border-color: #00A3FF;
+}
+
+.div_status {
+    width: 300px;
+    border: 2px solid;
+    border-radius: 15px;
+    position: relative;
+    padding: 10px;
+    background-color: white;
+    border-color: #00A3FF;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.div_status .status{
+    font-size: 19px;
+    font-weight: bold;
+    color: #133954;
+}
+.great_status, .good_status {
+    border-color: #00A3FF;
+    background-color: #DAF2FF;
+}
+
+.medium_status {
+    border-color: #fffb00;
+    background-color: #f6fac2;
+}
+
+.bad_status, .terrible_status {
+    border-color: #ff3c00;
+    background-color: #fac2c2;
+}
+
+.status_metric {
+    font-family: "Poppins", sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    color: #133954;
+}
+  
+.wrapper_chart {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.div_buttons {
+    width: 100%;
+    display: flex;
+    margin-bottom: 30px;
+    align-items: center;
+}
+
+.button_chart {
+    font-size: 15px;
+    padding: 8px 20px;
+    background-color: white;
+    border: solid 1px;
+    border-color: #00A3FF;
+    border-radius: 12px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.button_chart:hover, .button_selected {
+    cursor: pointer;
+    background-color: #A0EEFF;
+    font-weight: bold;
+}
+
+.chart {
+    width: 100%;
+}
+
+#ww_24b5aab5e221a {
+    width: 100%;
+   
+}
+
+@media (max-width: 800px) {
+    .wrapper_metrics {
+        flex-direction: column;
+    }
+    .master_section h1{
+        text-align: center;
+    }
+    .button_chart {
+        padding: 8px 10px;
+    }
+    .div_status {
+        text-align: center;
+    }
+}
+
+@media (max-width: 500px) {
+    .wrapper_metrics .wrapper_card .card_metric {
+        width: 250px;
+        height: 200px;
+    }
+    .total_content img {
+        width: 70px;
+        height: 90px;
+    }
+    .div_status {
+        width: 200px;
+    }
+    .data_content {
+        width: auto;
+    }
+    .progress-bar {
+        height: 150px;
+    }
+    .div_buttons {
+        justify-content: center;
+    }
+    #last_week_temp {
+        margin: 0px
+    }
+}
