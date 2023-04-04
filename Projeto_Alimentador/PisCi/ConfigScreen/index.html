@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+	<title>ConfigScreen</title>
+</head>
+
+<body>
+
+	<section class="config_screen">
+		<!-- Tela de configurações -->
+
+		<div class="div-mask">
+			<section class="def_screen">
+				<div class="div_left">
+					<img src="https://cdn-icons-png.flaticon.com/512/180/180012.png" class="config_img">
+	
+					<button class="edit_def_buttom" onclick="openModal()">
+							Editar definições
+							<i class="edit_icon fa-regular fa-pen-to-square"></i>
+						</button>
+				</div>
+	
+				<div class="div_right">
+					<h1>Definições:</h1>
+	
+					<div class="wrapper_data_def">
+						<p class="label_input_def">Espécie trabalhada:
+							<b id="kind_fish" class="input_def"></b>
+						</p>
+						<p class="label_input_def">Idade dos peixes:
+							<b id="age" class="input_def"></b> dias
+						</p>
+						<p class="label_input_def2">Qtd. aproximada peixes:
+							<b id="amount-fish" class="input_def"></b>
+						</p>
+						<p class="label_input_def">Peso médio peixes:
+							<b id="weight-fish" class="input_def"></b> gramas
+						</p>
+						<p class="label_input_def">Qtd. diária ideal ração:
+							<b id="amount-feed-ideal" class="input_def"></b> kg
+						</p>
+						<p class="label_input_def">Tipo de ração:
+							<b id="kind-feed" type="text" class="input_def"></b>
+						</p>
+						<p class="label_input_def">Frequência de alimentação diária:
+							<b id="freq" class="input_def"></b> vezes
+						</p>
+						<p class="label_input_def">Horários:
+							<b id="meal1" class="input_def"></b>; <b id="meal2" class="input_def"></b>; <b
+									id="meal3" class="input_def"></b>; <b id="meal4" class="input_def"></b>; <b
+									id="meal5" class="input_def"></b>
+						</p>
+						<p class="label_input_def3">Qtd. ração por refeição:
+							<b id="feedForMeal" class="input_def"></b> kg
+						</p>
+	
+	
+						<button class="edit_def_buttom2" onclick="openModal()">
+							Editar definições
+							<i class="edit_icon fa-regular fa-pen-to-square"></i>
+						</button>
+	
+	
+					</div>
+				</div>
+			</section>
+		</div>
+	
+		<section class="cards-wrapper hidden">
+	
+			<!-- Card 1: Espécie e Idade-->
+	
+			<div class="card-master card-master1">
+				<div class="div_icons" style="justify-content: right;">
+					<i class="close-icon close-icon1 fa fa-close" onclick="closed(this)"></i>
+				</div>
+	
+				<div class="wrapper">
+					<h1>Dados</h1>
+					<label class="label">Espécie Trabalhada:</label>
+					<div class="col-auto my-1">
+						<label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+						<select id="input1" class="standard-input mr-sm-2" id="inlineFormCustomSelect">
+								<option class="option-fish" value="Tilápia">Tilápia</option>
+								<option class="option-fish" value="Lambari">Lambari</option>
+								<option class="option-fish" value="Pacu">Pacu</option>
+								<option class="option-fish" value="Tambaqui">Tambaqui</option>
+							</select>
+					</div>
+					<label class="label"> Idade dos peixes (dias): </label>
+					<input id="input2" class="standard-input" type="number" required>
+					</div>
+	
+					<div class="button-div">
+						<button class="advance-buttom advance1 submit" onclick="advance(this)">Avançar
+							<i class="submit-icon fa fa-arrow-right"></i></button>
+					</div>
+				</div>
+	
+				<!-- Card 2: Quantidade e peso dos peixes-->
+	
+				<div class="card-master card-master2 hidden">
+					<div class="div_icons">
+						<i class=" return-arrow return-arrow2 fa fa-arrow-left" onclick="back(this)"></i>
+						<i class="close-icon close-icon2 fa fa-close" onclick="closed(this)"></i>
+					</div>
+					<div class="wrapper">
+						<h1>Dados</h1>
+						<div>
+							<label class="label">Quantidade de pexes no viveiro:</label>
+							<br>
+							<input id="input3" class="standard-input" type="number" required>
+						</div>
+							<div>
+								<label class="label">Peso médio dos peixes (g):</label>
+								<br>
+								<input id="input4" class="standard-input" type="number" required>
+						</div>
+							</div>
+							<div class="button-div">
+								<button class="advance-buttom advance2 submit"
+							onclick="advance(this); CalcFeedAmount(), kindFeed()">Avançar
+							<i class="submit-icon fa fa-arrow-right"></i></button></button>
+							</div>
+						</div>
+						<!-- Card 3: Quantidade e tipo de ração:-->
+						<div class="card-master card-master3 hidden">
+	
+							<div class="div_icons">
+								<i class=" return-arrow return-arrow3 fa fa-arrow-left" onclick="back(this)"></i>
+	
+								<i class="close-icon close-icon3 fa fa-close" onclick="closed(this)"></i>
+							</div>
+							<div class="wrapper">
+								<p style="margin-bottom: 20px;">Obs: Os valores recomendados podem ser editados.</p>
+								<div>
+									<label class="label">Qtd. de ração por dia (Kg):</label>
+									<br>
+									<input id="input5" class="standard-input" type="number" step=".01">
+						</div>
+									<div class="col-auto my-1">
+										<label class="label">Tipo de ração</label>
+										<br>
+										<label class="mr-sm-2" for="inlineFormCustomSelect"></label>
+										<select id="input6" class="standard-input mr-sm-2" id="inlineFormCustomSelect">
+								<option class="option-fish" id="food1" value="Ração em pó - 42% PB">Ração em pó - 42% PB</option>
+								<option class="option-fish" id="food2" value="2-3 mm - 42% PB">2-3 mm - 42% PB</option>
+								<option class="option-fish" id="food3" value="3-4 mm - 36% PB">3-4 mm - 36% PB</option>
+								<option class="option-fish" id="food4" value="4-6 mm - 32% PB">4-6 mm - 32% PB</option>
+								<option class="option-fish" id="food5" value="4-6 mm - 28-32% PB">4-6 mm - 28-32% PB</option>
+								<option class="option-fish" id="food6" value="6-8 mm - 28-32% PB">6-8 mm - 28-32% PB</option>
+							</select>
+									</div>
+								</div>
+								<div class="button-div">
+									<button class="advance-buttom advance3 submit" onclick="advance(this)">Avançar
+							<i class="submit-icon fa fa-arrow-right"></i></button>
+								</div>
+							</div>
+	
+							<!-- Card 4: Frequência-->
+							<div class="card-master card-master4 hidden">
+	
+								<div class="div_icons">
+									<i class=" return-arrow return-arrow4 fa fa-arrow-left" onclick="back(this)"></i>
+	
+									<i class="close-icon close-icon4 fa fa-close" onclick="closed(this)"></i>
+								</div>
+	
+								<div class="wrapper">
+									<br>
+									<br>
+									<p>Obs: Os valores recomendados podem ser editados.</p>
+									<br>
+									<div>
+										<label class="label">Refeições diárias:</label>
+										<br>
+										<input id="input7" class="standard-input" type="number" required>
+						</div>
+									</div>
+									<div class="buttom-div">
+										<button class="advance-buttom advance4 submit" onclick="advance(this), activeSchedules()">Avançar
+							<i class="submit-icon fa fa-arrow-right"></i></button>
+									</div>
+								</div>
+	
+	
+								<!-- Card 5: Horários-->
+	
+								<div class="card-master card-master5 hidden">
+									<div class="div_icons">
+										<i class=" return-arrow return-arrow5 fa fa-arrow-left" onclick="back(this)"></i>
+										<i class="close-icon close-icon4 fa fa-close" onclick="closed(this)"></i>
+									</div>
+									<div class="wrapper">
+										<p>Esolha os melhores horários para alimentar os peixes:</p>
+										<div class="cen">
+											<label class="meal label">1° Refeição:
+								<input id="input8" class="meal-input" type="time"></label>
+											<br>
+											<label class="meal label">2° Refeição:
+								<input id="input9" class="meal-input" type="time"></label>
+											<br>
+											<label class="meal label">3° Refeição:
+								<input id="input10" class="meal-input" type="time"></label>
+											<br>
+											<label class="meal label">4° Refeição:
+								<input id="input11" class="meal-input" type="time"></label>
+											<br>
+											<label class="meal label">5° Refeição:
+								<input id="input12" class="meal-input" type="time"></label>
+										</div>
+									</div>
+									<div class="button-div">
+										<button class="advance-buttom advance5 submit" id="save-button">Salvar
+							<i class="fa-solid fa fa-check"></i></button>
+									</div>
+								</div>
+		</section>
+	</section>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script type="text/javascript" src="./script.js"> </script>
+
+
+</body>
+
+</html>

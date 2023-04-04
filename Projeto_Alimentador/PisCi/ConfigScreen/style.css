@@ -1,0 +1,394 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@700&family=Poppins:wght@400;500;600&display=swap');
+
+
+
+*{
+    margin-bottom: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins",sans-serif;
+
+  }
+
+
+body{
+    margin: 0;
+    padding: 0;
+    background:white;
+    height: 100vh;
+    overflow: hidden;
+  }
+
+/* Add your CSS code below */
+* {
+  font-size: 14px;
+  font-family: Roboto, sans-serif;
+  margin: 0%;
+  color: black;
+}
+
+.config_screen {
+  display: flex;
+}
+
+.div-mask {
+  background-color: transparent;
+  width: 100%;
+  position: absolute;
+  height: 460px;
+  border-radius: 6px;
+}
+
+.def_screen {
+  width: 100%;
+  height: 460px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+
+  border: solid 1px;
+  border-color: #007FF3;
+  border-radius: 6px;
+  position: relative;
+  z-index: 1;
+}
+
+.div_left {
+	padding-right: 33px;
+  width: 34%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.config_img {
+  width: 60%;
+}
+
+.div_righ {
+  width: 65%;
+  display: flex;
+}
+
+.div_righ, h1{
+	 
+  font-family: 'Inter' sans-serif;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+  color: #494949;
+  margin-bottom: 20px;
+  font-size: 24px;
+  line-height: 40px;
+  color: #44475A;
+  text-align: left;
+}
+
+.div_righ, h1:before {
+  content: "";
+  height: 24px;
+  background-color: #007FF3;
+  width: 8px;
+  display: inline-block;
+  position: relative;
+  margin-right: 10px;
+  bottom: -5px;
+}
+
+.wrapper_data_def {
+	    width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: left;
+}
+
+.label_input_def {
+  font-family: 'Roboto' sans-serif;
+  font-style: 14;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+.label_input_def2
+ {
+width: 250px;
+  font-family: 'Roboto' sans-serif;
+  font-style: 14;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+.label_input_def3
+ {
+width: 300px;
+  font-family: 'Roboto' sans-serif;
+  font-style: 14;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 25px;
+  font-weight: 400;
+}
+
+.input_def {
+  width: 2px;
+  border: solid 0px;
+  color: #0084FE;
+  font-size: 16px;
+  font-weight: 600;
+  background-color: white;
+}
+.input_def:focus {
+  box-shadow: 0 0 0 0;
+  outline: 0;
+}
+
+.edit_def_buttom {
+  background-color: #007FF3;
+  padding: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 6px;
+  border: solid 0px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+
+.edit_def_buttom2 {
+  background-color: #007FF3;
+  padding: 9px;
+  padding-left: 15px;
+  padding-right: 15px;
+  color: white;
+  font-weight: 600;
+  font-size: 15px;
+  border-radius: 6px;
+  border: solid 0px;
+  margin-top: 30px;
+  position: relative;
+  z-index: 1;
+}
+
+.edit_icon {
+  padding-left: 7px;
+  font-size: 18px;
+  color: white;
+}
+
+.cards-wrapper {
+    width: 100%;
+    display: flex;
+    position: absolute;
+    z-index: 2;
+    justify-content: center;
+}
+
+.card-master {
+    display: flex;
+    flex-direction: column;
+    height: 414px;
+    width: 325px;
+    border: solid 2px;
+    border-color: #0084FE;
+    margin: 20px;
+    border-radius: 6px;
+    align-items: center;
+    animation: card-animation 1s;
+    background-color: white;
+}
+
+.card-master h1{
+    margin-bottom: 20px;
+    font-size: 25px;
+    font-weight: bold;
+    color: #494949;
+  }
+
+  @keyframes card-animation {
+    0% {
+        opacity: 0%;
+    }
+    100% {
+        opacity: 100%;
+    }
+}
+
+
+.div_icons {
+    height: 20px;
+    display: flex;
+    top: 35px;
+    align-items: center;
+    justify-content: space-between;
+    width: 88%;
+    margin-top: 20px;
+    margin-bottom: 6px;
+    animation: wrapper-animation 0.5s;
+    
+}
+
+.return-arrow {
+  font-size: 23px;
+  padding: 1px;
+}
+
+.close-icon {
+  font-size: 23px;
+  padding: 1px;
+}
+
+.close-icon:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.return-arrow:hover {
+    cursor: pointer;
+    color: red;
+}
+
+.wrapper {
+    padding-top: 0px;
+    padding-bottom: 10px;
+    width: 73%;
+    animation: wrapper-animation 0.5s;
+}
+
+@keyframes wrapper-animation {
+    0% {
+        margin-left: 60px;
+    }
+    100% {
+        margin-left: 0px;
+    }
+}
+
+
+.card-master p{
+  color: rgba(0, 0, 0, 0.6); 
+  font-size: 14px;
+  font-weight: 300;
+  margin-bottom: 10px;
+}
+
+.standard-input {
+    width: 100%;
+    height: 48px;
+    font-size: 14px;
+    color: rgba(30, 30, 30, 0.6);
+    padding-left: 8px;
+    border: solid 2px;
+    border-color: #d4d4d4;
+    border-radius: 3px;
+    margin-bottom: 18px;
+    margin-top: 5px;
+    color: #494949;
+}
+
+.meal-input {
+    width: 45%;
+    height: 28px;
+    font-size: 14px;
+    color: rgba(30, 30, 30, 0.6);
+    padding-left: 8px;
+    border: solid 2px;
+    border-color: #d4d4d4;
+    border-radius: 3px;
+    margin-bottom: 6px;
+    margin-top: 5px;
+}
+
+.cen{
+  margin-left: 30px;
+}
+
+.label {
+    font-size: 14px;
+    width: 100%;
+}
+
+.button-div {
+    display: flex;
+    margin-top: 3px;
+    justify-content: center;
+    margin-top: 2px;
+    margin-bottom: 30px;
+}
+
+button:hover{
+  cursor: pointer;
+  color: #0084FE;
+  background-color: aliceblue;
+  border: solid 2px;
+  border-color: #0084FE;
+}
+
+button:hover i{
+  color: #0084FE;
+}
+
+.submit{
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    padding: 14px;
+    width: 105px;
+    height: 32px;
+    background: #0084FE;
+    border: solid 0px;
+    border-radius: 6px;
+    color: white;
+    font-family: "Poppins", sans-serif;;
+    font-weight: 500;
+    font-size: 16px;
+    background: #0084FE;
+}
+
+i.fa-arrow-left{
+  font-size: 18px;
+}
+
+i.fa-close{
+  font-size: 19px;
+}
+
+i.fa-check, i.fa-arrow-right{
+  margin-left: 4px;
+  font-size: 13px;
+  color: white;
+}
+
+
+
+
+.hidden {
+    display: none;
+}
+
+@media (max-width: 600px)
+{
+  .div_left
+   {
+    display: none;
+   }
+}
+
+@media (min-width: 600px)
+{
+  .edit_def_buttom2 {
+  
+    display: none;
+   }
+}
+
